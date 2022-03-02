@@ -22,6 +22,13 @@ var edad4 = Number(prompt("4. Ingresa la cuarta edad"));
     console.log("Cuarta edad = " + edad4);
         if(isNaN(edad4)) {alert("Numero invalido, volver a empezar con tecla F5");}
 
+var edades = [];
+    edades.push({"Primera Edad" :edad1})
+    edades.push({"Segunda Edad" :edad2})
+    edades.push({"Tercera Edad" :edad3})
+    edades.push({"Cuarta Edad"  :edad4})
+console.log(edades);
+
 // Al final, tomo las 4 Edades, las sumo, y luego las divido por 4 para generar el promedio de edad
 // Y logueo todo en consola, y por alert le doy al promedio al usuario
 sum = edad1 + edad2 + edad3 + edad4;
