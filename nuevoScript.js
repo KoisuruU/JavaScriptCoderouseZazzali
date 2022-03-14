@@ -35,7 +35,29 @@ alert("Hola te voy a pedir un número");
     `<div>
     <p>Las edades de tu familia son: ${newArray} </p>
     <p>La suma de las edades de tu familia es: ${sum}</p>
-    <p>El Promedio de edad de tu familia es: ${sum/nEdades}</p>
     </div>`
 // LA PARTE DE DOM 
 
+
+// LA PARTE DE EVENTOS 
+let btn = document.createElement("button");
+btn.innerHTML = "Mostrame el promedio de edad!";
+btn.onclick = function calculoPromedio() 
+    {
+        let showPromedio = document.createElement("p");
+        showPromedio.innerHTML = `${sum/nEdades}`;
+        document.body.appendChild(showPromedio);
+        btn.onclick = null;
+    }
+document.body.appendChild(btn);
+// LA PARTE DE EVENTOS 
+
+
+
+
+
+/* <p>El Promedio de edad de tu familia es: ${sum/nEdades}</p>  */
+
+
+// let boton = document.createElement("btnPromedio");
+//     boton.onclick = () => {document.createElement("p"); boton.innerHTML = "Clickeame!"; document.body.appendChild(boton)} 
