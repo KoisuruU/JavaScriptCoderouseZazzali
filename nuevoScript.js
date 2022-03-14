@@ -26,7 +26,6 @@ alert("Hola te voy a pedir un número");
             {sum += edades[i];}
         console.log(sum);
 
-        alert("La edad promedio es: " + (sum / nEdades));
         console.log(sum / nEdades);
 
 // LA PARTE DE DOM 
@@ -40,6 +39,9 @@ alert("Hola te voy a pedir un número");
 
 
 // LA PARTE DE EVENTOS 
+// Lo que hace esto es crea un boton en HTML, le agrega un texto para indicar al usuario su funcion
+// Al tocarse el boton, crea un <p> en el que se va a calcular y luego imprimir el resultado de promedio de edad
+// Para terminar, se desactiva el boton para que no imprima al infinito si uno clickea mas veces
 let btn = document.createElement("button");
 btn.innerHTML = "Mostrame el promedio de edad!";
 btn.onclick = function calculoPromedio() 
