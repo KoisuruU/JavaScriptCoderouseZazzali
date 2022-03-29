@@ -1,3 +1,4 @@
+
 alert("Hola te voy a pedir un número");
     let nEdades = Number(prompt("Ingresa la cantidad de familiares"));
         if(isNaN(nEdades)) {alert("Numero invalido, volver a empezar con tecla F5");}
@@ -50,6 +51,12 @@ btn.onclick = function calculoPromedio()
         showPromedio.innerHTML = `${sum/nEdades}`;
         document.body.appendChild(showPromedio);
         btn.onclick = null;
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `El promedio de edad de tu familia es: ${sum/nEdades}`,
+            showConfirmButton: true,
+        })
     }
 document.body.appendChild(btn);
 // LA PARTE DE EVENTOS 
