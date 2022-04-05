@@ -29,6 +29,8 @@ alert("Hola te voy a pedir un número");
 
         console.log(sum / nEdades);
 
+
+
 // LA PARTE DE DOM 
     let infoFamilia = document.querySelector("#infoFamilia");
     infoFamilia.innerHTML = 
@@ -61,7 +63,27 @@ btn.onclick = function calculoPromedio()
 document.body.appendChild(btn);
 // LA PARTE DE EVENTOS 
 
+// La parte de Fetch para mandar mail
+const btn2 = document.getElementById('boton');
 
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn2.value = 'Sending...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_uxol8hp';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn2.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn2.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});
 
 
 
