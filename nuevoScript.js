@@ -35,8 +35,8 @@ alert("Hola te voy a pedir un número");
     let infoFamilia = document.querySelector("#infoFamilia");
     infoFamilia.innerHTML = 
     `<div>
-    <p>Las edades de tu familia son: ${newArray} </p>
-    <p>La suma de las edades de tu familia es: ${sum}</p>
+    <p>Tu familia está compuesta por: ${newArray} </p>
+    <p>La suma de las edades es: ${sum}</p>
     </div>`
 // LA PARTE DE DOM 
 
@@ -61,29 +61,45 @@ btn.onclick = function calculoPromedio()
         })
     }
 document.body.appendChild(btn);
-// LA PARTE DE EVENTOS 
+// LA PARTE DE EVENTOS ^
 
-// La parte de Fetch para mandar mail
-const btn2 = document.getElementById('boton');
+// La parte de Fetch 
 
-document.getElementById('form')
- .addEventListener('submit', function(event) {
-   event.preventDefault();
+// fetch("data.json")
+// .then(res => res.json())
+// .then(data => console.log(data))
 
-   btn2.value = 'Sending...';
+fetch('data.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = 'Nombre: ' + data[i].nombre + ', ' + data[i].edad;
+                mainContainer.appendChild(div);
+            }
+        }
 
-   const serviceID = 'default_service';
-   const templateID = 'template_uxol8hp';
 
-   emailjs.sendForm(serviceID, templateID, this)
-    .then(() => {
-      btn2.value = 'Send Email';
-      alert('Sent!');
-    }, (err) => {
-      btn2.value = 'Send Email';
-      alert(JSON.stringify(err));
-    });
-});
+
+
+
+
+
+
+
+
+
+
+
 
 
 
